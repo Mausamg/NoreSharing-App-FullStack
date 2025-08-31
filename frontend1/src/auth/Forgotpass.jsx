@@ -58,7 +58,7 @@ function Forgotpass() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/user/send-reset-password-email/",
+        "https://noresharing-app-fullstack-2.onrender.com/api/user/send-reset-password-email/",
         { email: formData.email }
       );
       console.log("Response data:", response.data);

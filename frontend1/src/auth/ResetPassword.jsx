@@ -62,7 +62,7 @@ function ResetPassword() {
 
     try {
       const response = await axios.post(
-        `http://127.0.0.1:8000/api/user/reset-password/${uid}/${token}/`,
+        `https://noresharing-app-fullstack-2.onrender.com/api/user/reset-password/${uid}/${token}/`,
         {
           password: formData.password,
           password2: formData.password2,

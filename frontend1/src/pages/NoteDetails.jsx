@@ -77,9 +77,12 @@ const NoteDetailPage = ({ currentUser }) => {
       sessionStorage.getItem("refreshToken");
     if (!refreshToken) return null;
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/token/refresh/", {
-        refresh: refreshToken,
-      });
+      const res = await axios.post(
+        "https://noresharing-app-fullstack-2.onrender.com/api/token/refresh/",
+        {
+          refresh: refreshToken,
+        }
+      );
       const newAccess = res.data?.access;
       if (newAccess) {
         if (localStorage.getItem("refreshToken")) {
@@ -103,7 +106,7 @@ const NoteDetailPage = ({ currentUser }) => {
     let headers = { ...authHeader() };
     try {
       await axios.delete(
-        `http://127.0.0.1:8000/api/user/notes/${slugToDelete}/`,
+        `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slugToDelete}/`,
         { headers }
       );
       // refresh notes list if provider exposes refreshNotes
@@ -121,7 +124,7 @@ const NoteDetailPage = ({ currentUser }) => {
         if (newAccess) {
           headers = { Authorization: `Bearer ${newAccess}` };
           await axios.delete(
-            `http://127.0.0.1:8000/api/user/notes/${slugToDelete}/`,
+            `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slugToDelete}/`,
             { headers }
           );
           try {
@@ -174,7 +177,7 @@ const NoteDetailPage = ({ currentUser }) => {
     const load = async () => {
       try {
         const res = await axios.get(
-          `http://127.0.0.1:8000/api/user/notes/${slug}/`,
+          `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`,
           { headers: { ...authHeader() } }
         );
         setNote(res.data);
@@ -185,7 +188,7 @@ const NoteDetailPage = ({ currentUser }) => {
           const newAccess = await refreshAccessToken();
           if (newAccess) {
             const res2 = await axios.get(
-              `http://127.0.0.1:8000/api/user/notes/${slug}/`,
+              `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`,
               { headers: { ...authHeader() } }
             );
             setNote(res2.data);
@@ -194,7 +197,7 @@ const NoteDetailPage = ({ currentUser }) => {
           } else {
             // fallback unauthenticated
             const resPub = await axios.get(
-              `http://127.0.0.1:8000/api/user/notes/${slug}/`
+              `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`
             );
             setNote(resPub.data);
             setIsBookmarked(false);
@@ -356,7 +359,7 @@ const NoteDetailPage = ({ currentUser }) => {
                       return;
                     }
                     try {
-                      const url = `http://127.0.0.1:8000/api/user/notes/${note.slug}/rate/`;
+                      const url = `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${note.slug}/rate/`;
                       const res = await axios.post(
                         url,
                         { value: i },
@@ -406,7 +409,7 @@ const NoteDetailPage = ({ currentUser }) => {
                 const prev = isBookmarked;
                 setIsBookmarked(!prev);
                 try {
-                  const url = `http://127.0.0.1:8000/api/user/notes/${note.slug}/bookmark/`;
+                  const url = `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${note.slug}/bookmark/`;
                   if (prev) {
                     await axios.delete(url, { headers: { ...authHeader() } });
                     try {
@@ -491,7 +494,7 @@ const NoteDetailPage = ({ currentUser }) => {
                   const isImage =
                     att.file_url &&
                     att.file_url.match(/\.(jpg|jpeg|png|gif|bmp|webp)$/i);
-                  const downloadUrl = `http://127.0.0.1:8000/api/user/download/attachment/${att.id}/`;
+                  const downloadUrl = `https://noresharing-app-fullstack-2.onrender.com/api/user/download/attachment/${att.id}/`;
                   const fileName = att.file_url.split("/").pop();
 
                   return (

@@ -8,7 +8,7 @@ import {
 
 // Create a shared axios instance
 const api = axios.create({
-    baseURL: "http://127.0.0.1:8000",
+    baseURL: "https://noresharing-app-fullstack-2.onrender.com",
 });
 
 // Attach Authorization header, proactively refreshing if needed

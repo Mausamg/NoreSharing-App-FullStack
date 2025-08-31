@@ -48,12 +48,12 @@ const PublicProfile = () => {
         // Public endpoints; adjust to your backend paths
         const [profileRes, notesRes] = await Promise.all([
           axios.get(
-            `http://127.0.0.1:8000/api/user/profile/${encodeURIComponent(
+            `https://noresharing-app-fullstack-2.onrender.com/api/user/profile/${encodeURIComponent(
               username
             )}/`
           ),
           axios.get(
-            `http://127.0.0.1:8000/api/user/notes/by-user/${encodeURIComponent(
+            `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/by-user/${encodeURIComponent(
               username
             )}/`
           ),

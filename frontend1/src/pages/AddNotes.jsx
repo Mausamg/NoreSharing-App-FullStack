@@ -63,9 +63,12 @@ function AddNotes() {
       sessionStorage.getItem("refreshToken");
     if (!refreshToken) return null;
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/token/refresh/", {
-        refresh: refreshToken,
-      });
+      const res = await axios.post(
+        "https://noresharing-app-fullstack-2.onrender.com/api/token/refresh/",
+        {
+          refresh: refreshToken,
+        }
+      );
       const newAccess = res.data?.access;
       if (newAccess) {
         if (localStorage.getItem("refreshToken")) {
@@ -82,9 +85,13 @@ function AddNotes() {
   };
 
   const postNote = async (formData, headers) => {
-    return axios.post("http://127.0.0.1:8000/api/user/notes/", formData, {
-      headers,
-    });
+    return axios.post(
+      "https://noresharing-app-fullstack-2.onrender.com/api/user/notes/",
+      formData,
+      {
+        headers,
+      }
+    );
   };
 
   const handleSubmit = async (e) => {

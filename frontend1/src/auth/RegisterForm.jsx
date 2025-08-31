@@ -81,7 +81,7 @@ function RegisterForm() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/user/register/",
+        "https://noresharing-app-fullstack-2.onrender.com/api/user/register/",
         formData
       );
 

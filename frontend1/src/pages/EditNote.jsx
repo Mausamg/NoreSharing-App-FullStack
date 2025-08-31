@@ -26,7 +26,7 @@ const EditNote = () => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `http://127.0.0.1:8000/api/user/notes/${slug}/`
+          `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`
         );
         setTitle(response.data.title);
         setBody(response.data.body);
@@ -112,9 +112,12 @@ const EditNote = () => {
       sessionStorage.getItem("refreshToken");
     if (!refreshToken) return null;
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/token/refresh/", {
-        refresh: refreshToken,
-      });
+      const res = await axios.post(
+        "https://noresharing-app-fullstack-2.onrender.com/api/token/refresh/",
+        {
+          refresh: refreshToken,
+        }
+      );
       const newAccess = res.data?.access;
       if (newAccess) {
         if (localStorage.getItem("refreshToken")) {
@@ -172,7 +175,7 @@ const EditNote = () => {
       let response = null;
       try {
         response = await axios.put(
-          `http://127.0.0.1:8000/api/user/notes/${slug}/`,
+          `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`,
           formData,
           { headers }
         );
@@ -182,7 +185,7 @@ const EditNote = () => {
           if (newAccess) {
             headers = { Authorization: `Bearer ${newAccess}` };
             response = await axios.put(
-              `http://127.0.0.1:8000/api/user/notes/${slug}/`,
+              `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${slug}/`,
               formData,
               { headers }
             );

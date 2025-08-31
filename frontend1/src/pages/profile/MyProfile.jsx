@@ -44,9 +44,12 @@ const MyProfile = () => {
       try {
         // 1) Self profile
         const me = await requestWithRefresh(() =>
-          axios.get("http://127.0.0.1:8000/api/user/profile/", {
-            headers: { ...authHeader() },
-          })
+          axios.get(
+            "https://noresharing-app-fullstack-2.onrender.com/api/user/profile/",
+            {
+              headers: { ...authHeader() },
+            }
+          )
         );
         setUser(me.data);
 
@@ -54,14 +57,20 @@ const MyProfile = () => {
         try {
           const [mineRes, savedRes] = await Promise.all([
             requestWithRefresh(() =>
-              axios.get("http://127.0.0.1:8000/api/user/notes/mine/", {
-                headers: { ...authHeader() },
-              })
+              axios.get(
+                "https://noresharing-app-fullstack-2.onrender.com/api/user/notes/mine/",
+                {
+                  headers: { ...authHeader() },
+                }
+              )
             ),
             requestWithRefresh(() =>
-              axios.get("http://127.0.0.1:8000/api/user/notes/bookmarked/", {
-                headers: { ...authHeader() },
-              })
+              axios.get(
+                "https://noresharing-app-fullstack-2.onrender.com/api/user/notes/bookmarked/",
+                {
+                  headers: { ...authHeader() },
+                }
+              )
             ),
           ]);
           setNotes(mineRes.data || []);
@@ -69,9 +78,12 @@ const MyProfile = () => {
         } catch {
           // Fallback to all notes and derive locally (handles 404 on endpoints)
           const allNotes = await requestWithRefresh(() =>
-            axios.get("http://127.0.0.1:8000/api/user/notes/", {
-              headers: { ...authHeader() },
-            })
+            axios.get(
+              "https://noresharing-app-fullstack-2.onrender.com/api/user/notes/",
+              {
+                headers: { ...authHeader() },
+              }
+            )
           );
           const list = allNotes.data || [];
           const mine = list.filter((n) => n.username === me.data.email);
@@ -161,7 +173,7 @@ const MyProfile = () => {
                 return;
               try {
                 await axios.delete(
-                  `http://127.0.0.1:8000/api/user/notes/${encodeURIComponent(
+                  `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${encodeURIComponent(
                     slug
                   )}/`,
                   { headers: { ...authHeader() } }
@@ -184,7 +196,7 @@ const MyProfile = () => {
             onUnsave={async (slug) => {
               try {
                 await axios.delete(
-                  `http://127.0.0.1:8000/api/user/notes/${encodeURIComponent(
+                  `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${encodeURIComponent(
                     slug
                   )}/bookmark/`,
                   { headers: { ...authHeader() } }
@@ -205,7 +217,7 @@ const MyProfile = () => {
               // 1) Update profile info (name/email/bio)
               try {
                 const res = await axios.patch(
-                  "http://127.0.0.1:8000/api/user/profile/",
+                  "https://noresharing-app-fullstack-2.onrender.com/api/user/profile/",
                   { name: form.name, email: form.email, bio: form.bio },
                   { headers: { ...authHeader() } }
                 );
@@ -224,7 +236,7 @@ const MyProfile = () => {
                 }
                 try {
                   await axios.post(
-                    "http://127.0.0.1:8000/api/user/change-password/",
+                    "https://noresharing-app-fullstack-2.onrender.com/api/user/change-password/",
                     { password: form.password, password2: form.password2 },
                     { headers: { ...authHeader() } }
                   );

@@ -261,7 +261,7 @@ const UserProfile = () => {
   //   if (!username) return;
 
   //   axios
-  //     .get(`http://127.0.0.1:8000/api/user/profile/${username}/`)
+  //     .get(`https://noresharing-app-fullstack-2.onrender.com/api/user/profile/${username}/`)
   //     .then((res) => {
   //       setUserProfile(res.data);
   //       setLoading(false);

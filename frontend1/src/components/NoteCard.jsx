@@ -129,7 +129,7 @@ const NoteCard = ({ note }) => {
     const prev = isBookmarked;
     setIsBookmarked(!prev);
     try {
-      const url = `http://127.0.0.1:8000/api/user/notes/${note.slug}/bookmark/`;
+      const url = `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${note.slug}/bookmark/`;
       if (prev) {
         await axios.delete(url, { headers: { ...authHeader() } });
         if (updateNoteInList)
@@ -169,7 +169,7 @@ const NoteCard = ({ note }) => {
     setAvgRating(Number.isFinite(newAvg) ? parseFloat(newAvg.toFixed(1)) : 0);
     setRatingsCount(newCnt);
     try {
-      const url = `http://127.0.0.1:8000/api/user/notes/${note.slug}/rate/`;
+      const url = `https://noresharing-app-fullstack-2.onrender.com/api/user/notes/${note.slug}/rate/`;
       const res = await axios.post(
         url,
         { value },
