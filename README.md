@@ -39,7 +39,7 @@ A full‑stack note sharing app. Users can register, create and edit notes with 
 
 ## API overview
 
-Base URL (dev): `http://127.0.0.1:8000`
+Base URL (dev): `https://noresharing-app-fullstack-2.onrender.com`
 
 Auth and profile
 
@@ -120,7 +120,7 @@ npm install
 npm run dev
 ```
 
-Vite dev server defaults to `http://localhost:5173`. The backend runs at `http://127.0.0.1:8000`.
+Vite dev server defaults to `http://localhost:5173`. The backend runs at `https://noresharing-app-fullstack-2.onrender.com`.
 
 ## Configuration notes
 
