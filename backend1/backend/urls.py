@@ -19,9 +19,12 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
+from myapp.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Root health/info endpoint (avoid 404 at /)
+    path('', home, name='root'),
     path("api/user/", include("myapp.urls")), 
     # JWT refresh endpoint for renewing access tokens
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
