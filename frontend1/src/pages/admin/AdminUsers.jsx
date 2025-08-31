@@ -253,7 +253,7 @@ export default function AdminUsers() {
                         updateUser(u.id, { is_admin: !u.is_admin })
                       }
                       disabled={u.email === meEmail}
-                      className={`px-2 py-1 rounded text-white ${
+                      className={`px-2 py-1 rounded text-white w-28 text-center whitespace-nowrap ${
                         u.email === meEmail
                           ? "bg-indigo-300 cursor-not-allowed"
                           : "bg-indigo-600 hover:bg-indigo-700"
@@ -266,7 +266,7 @@ export default function AdminUsers() {
                         updateUser(u.id, { is_active: !u.is_active })
                       }
                       disabled={u.email === meEmail}
-                      className={`px-2 py-1 rounded text-white ${
+                      className={`px-2 py-1 rounded text-white w-28 text-center whitespace-nowrap ${
                         u.email === meEmail
                           ? "bg-amber-300 cursor-not-allowed"
                           : "bg-amber-600 hover:bg-amber-700"
@@ -277,7 +277,7 @@ export default function AdminUsers() {
                     <button
                       onClick={() => deleteUser(u.id)}
                       disabled={u.email === meEmail}
-                      className={`px-2 py-1 rounded text-white ${
+                      className={`px-2 py-1 rounded text-white w-28 text-center whitespace-nowrap ${
                         u.email === meEmail
                           ? "bg-red-300 cursor-not-allowed"
                           : "bg-red-600 hover:bg-red-700"
