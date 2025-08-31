@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-hhmaw13qnup2=@-w$5-92-u^a&x-cfgedlh8-*ck0b($3fvah5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['noresharing-app-fullstack-2.onrender.com',]
 
 
 # Application definition
@@ -193,7 +193,6 @@ SIMPLE_JWT = {
 PASSWORD_RESET_TIMEOUT=900
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://noresharing-app-fullstack-2.onrender.com',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
