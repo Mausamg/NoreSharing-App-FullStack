@@ -193,8 +193,7 @@ SIMPLE_JWT = {
 PASSWORD_RESET_TIMEOUT=900
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'noresharing-app-fullstack-1.onrender.com',
-    '127.0.0.1'
+    'https://noresharing-app-fullstack-1.onrender.com',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
