@@ -24,12 +24,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hhmaw13qnup2=@-w$5-92-u^a&x-cfgedlh8-*ck0b($3fvah5'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-default-secret')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['noresharing-app-fullstack-2.onrender.com',]
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'noresharing-app-fullstack-2.onrender.com',
+]
+
 
 
 # Application definition
@@ -196,8 +203,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-print("EMAIL_USER:", os.environ.get('EMAIL_USER'))
-print("EMAIL_PASS:", os.environ.get('EMAIL_PASS'))
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
