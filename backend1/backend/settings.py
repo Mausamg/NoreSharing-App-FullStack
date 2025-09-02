@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'noresharing-app-fullstack-2.onrender.com',
+    'nore-sharing-app.vercel.app',
 ]
 
 
@@ -92,8 +93,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'NoteSharing-db'),
+        'USER': os.environ.get('DB_USER', 'postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'root'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
@@ -200,8 +205,8 @@ SIMPLE_JWT = {
 PASSWORD_RESET_TIMEOUT=900
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
+    'https://note-sharing-app.vercel.app',
 ]
-CORS_ALLOW_ALL_ORIGINS = True
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
