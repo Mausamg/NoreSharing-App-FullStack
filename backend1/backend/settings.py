@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'noresharing-app-fullstack-2.onrender.com',
     'nore-sharing-app.vercel.app',
+    'nore-sharing-app-full-stack.vercel.app'
 ]
 
 
@@ -206,6 +207,7 @@ PASSWORD_RESET_TIMEOUT=900
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'https://note-sharing-app.vercel.app',
+    'https://nore-sharing-app-full-stack.vercel.app'
 ]
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
