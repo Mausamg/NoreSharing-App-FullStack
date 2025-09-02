@@ -7,7 +7,7 @@ from myapp.views import (
     UserProfileDetailView, rate_note, bookmark_note, PublicUserProfileByUsername,
     AdminUsersView, AdminUserDetailView, HeartbeatView
 )
-
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns=[
     path('test_api/', test_api, name='test_api'),
@@ -49,4 +49,7 @@ urlpatterns=[
     path("admin/users/<int:user_id>/", AdminUserDetailView.as_view(), name="admin-user-detail"),
     # Heartbeat
     path("heartbeat/", HeartbeatView.as_view(), name="heartbeat"),
+
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
